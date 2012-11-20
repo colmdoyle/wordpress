@@ -79,7 +79,7 @@ class Facebook_Loader {
 			// admin bar may show on public-facing site as well as administrative section
 			add_action( 'add_admin_bar_menus', array( &$this, 'admin_bar' ) );
 		}
-		
+
 
 		if ( is_admin() ) {
 			add_action( 'admin_enqueue_scripts', array( &$this, 'register_js_sdk' ), 1 );
@@ -217,7 +217,6 @@ class Facebook_Loader {
 		// include comment count filters on all pages
 		if ( get_option( 'facebook_comments_enabled' ) ) {
 			add_filter( 'comments_array', '__return_null' );
-			add_filter( 'comments_open', '__return_true' ); // comments are always open
 
 			// short-circuit special template behavior for comment count = 0
 			// prevents linking to #respond anchor which leads nowhere
